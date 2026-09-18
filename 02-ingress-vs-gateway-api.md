@@ -10,7 +10,7 @@ In Kubernetes, anything that Kubernetes tracks or manages is called a **"resourc
 
 `Ingress` was also a built-in Kubernetes resource type. It described how traffic coming from outside the cluster should be routed to a service inside it, using basic rules like "send requests for this domain name to this service." Kubernetes provided this natively, and it was common to everyone.
 
-A **CRD (Custom Resource Definition)** is a mechanism for creating a new, custom resource type, one that goes beyond Kubernetes' built-in resource types (`Pod`, `Service`, `Ingress`, etc.). Any vendor or company can use a CRD to teach Kubernetes about new "resource types" that Kubernetes didn't know about out of the box.
+A **CRD (Custom Resource Definition)** is a mechanism for creating a new, custom resource type, one that goes beyond Kubernete's built-in resource types (`Pod`, `Service`, `Ingress`, etc.). Any vendor or company can use a CRD to teach Kubernetes about new "resource types" that Kubernetes didn't know about out of the box.
 
 ## 2. The old way: every vendor built its own CRDs
 
@@ -77,7 +77,7 @@ This is how `Gateway API` came to be, the official successor to `Ingress`.
 
 When people install a vendor based on the Kubernetes Gateway API standard (like Traefik), the new CRDs that get installed, `Gateway`, `GatewayClass`, `HTTPRoute`, `TLSRoute`, are fundamentally different from the older CRDs (like `IngressRoute`, `Middleware`, which Traefik built for itself).
 
-The difference: the older CRDs (`IngressRoute`, etc.) were built solely by Traefik, solely for Traefik's own use, no other vendor (NGINX, Envoy Gateway) understood them at all. The new CRDs (`Gateway`, `HTTPRoute`, `TLSRoute`), on the other hand, were built by Kubernetes' own SIG-Network group, as a shared, common standard.
+The difference: the older CRDs (`IngressRoute`, etc.) were built solely by Traefik, solely for Traefik's own use, no other vendor (NGINX, Envoy Gateway) understood them at all. The new CRDs (`Gateway`, `HTTPRoute`, `TLSRoute`), on the other hand, were built by Kubernete's own SIG-Network group, as a shared, common standard.
 
 Being a "shared standard" doesn't just mean different vendors happen to build similar things. In practice, every vendor installs the exact same, official YAML file published by SIG-Network, without modifying it:
 
